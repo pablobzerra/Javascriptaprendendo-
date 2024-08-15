@@ -12,16 +12,25 @@ const produtos = [
 
 let agrupamento = {}
 
+
+/*
+versao antiga
 for (let i = 0;i < produtos.length; i++) {
     let produto =  produtos[i];
     let categoria = produto["categoria"]
     agrupamento[categoria] = 0
 }
+*/
 
 for (let i = 0; i < produtos.length; i++) {
     let produto =  produtos[i];
     let categoria = produto["categoria"]
     let preco = produto["preco"]
+
+    //Melhorado
+    if (!agrupamento) {
+      agrupamento[categoria] = 0
+    }
 
     agrupamento[categoria] = agrupamento[categoria] + preco
 }
